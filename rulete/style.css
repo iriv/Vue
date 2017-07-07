@@ -1,0 +1,86 @@
+body {
+    padding-top: 50px; 
+}
+
+#start-button{
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+/*    border:2px solid green;*/
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.ion-woman, .ion-man , .ion-android-more-vertical{
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.add-btn, .del-btn  {
+    border-radius: 100px!important;
+    width: 40px;
+    height: 40px;
+    font-size:20px!important;
+    line-height: 0px!important;
+}
+
+/*APP*/
+
+#app ul,#menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+#app li {
+    list-style: none;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 20px 10px 0px
+ }
+
+#app li i.ion-android-cancel {
+    cursor: pointer;
+    font-size: 15px;
+    float: right;
+}
+
+#app li.active span {
+    color:red;
+}
+
+#app li button {
+    float:right;
+    display: block;
+}
+
+
+/*MENU*/
+#menu {
+    position: absolute;
+    width: 300px;
+    background-color: black;
+    color:aliceblue;
+/*    z-index: 1;*/
+    height: 475px;
+    top:20px;
+/*    display: none;*/
+}
+
+#menu-show-button {
+    position: absolute;
+    z-index: 1;
+    background-color:transparent;
+    color:;
+    top: -30px;
+    border: none;
+}
+
+
+
+#menu ul {
+    margin: 20px 30px 30px;
+    list-style: none;
+}
+
+#menu li+li {
+    margin-top:10px;
+}

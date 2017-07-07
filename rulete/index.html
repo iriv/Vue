@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+</head>
+<body>
+
+	
+	<div class="container">
+        <div id='app'> 
+            <div class="row">
+                <div class="col-md-12">
+                   <button id="menu-show-button" v-on:click='showmenu'>
+                       <i class="ion-android-more-vertical"></i>
+                   </button>
+                </div>
+                <div class="col-md-4">
+                    <ul id='female-list'>
+                        <li v-bind:class="{ active: (focus.females==key)}" v-for='(female,key) in stage.females '>
+                            <i class="ion-woman"></i><span>{{female}}</span>
+                            <i  v-on:click="del(key,stage.females)" class="ion-android-cancel"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="ion-arrow-right-b"></i>
+                </div>
+                <div class="col-md-4">
+                    <ul id="male-list">
+                        <li v-bind:class="{ active: (focus.males==key)}" v-for='(male,key) in stage.males '>
+                            <i class="ion-man"></i><span>{{male}}</span>
+                            <i v-on:click="del(key,stage.males)" class="ion-android-cancel"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" align='center'>
+                    <button v-on:click='start' id="start-button">ПУСК</button>    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul id='action-list'>
+                        <li v-for='(act,key) in stage.actions '>
+                        <span>{{act}}</span>
+                        <i v-on:click="del(key,stage.actions)" class="ion-android-cancel"></i>     
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4"></div>
+
+                <div id='body-list' class="col-md-4">
+                    <ul>
+                        <li v-for='(b,key) in stage.body '>
+                            <span>{{b}}</span>
+                            <i v-on:click="del(key,stage.body)" class="ion-android-cancel"></i>  
+                        </li>
+                    </ul>
+                </div>
+            </div>	
+
+
+        </div>
+        
+        <div v-if='show' id='menu' v-on:click.left="hidemenu">
+           <ul>
+               <li v-for='item in items'>{{item.title}}</li>
+           </ul>
+	    </div>
+	</div>
+
+	
+	<script src="https://vuejs.org/js/vue.js"></script>	
+	<script src="app.js"></script>	
+</body>
+</html>
