@@ -47,8 +47,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <ul id='action-list'>
-                        <li v-for='(act,key) in stage.actions '>
-                        <span>{{act}}</span>
+                        <li v-for='(act,key) in stage.actions' v-if='act.checked == true'>
+                        <span>{{act.text}}</span>
                         <i v-on:click="del(key,stage.actions)" class="ion-android-cancel"></i>     
                         </li>
                     </ul>
@@ -58,8 +58,8 @@
 
                 <div id='body-list' class="col-md-4">
                     <ul>
-                        <li v-for='(b,key) in stage.body '>
-                            <span>{{b}}</span>
+                        <li v-for='(b,key) in stage.body' v-if='b.checked == true'>
+                            <span>{{b.text}}</span>
                             <i v-on:click="del(key,stage.body)" class="ion-android-cancel"></i>  
                         </li>
                     </ul>
@@ -69,10 +69,32 @@
 
         </div>
         
-        <div v-if='show' id='menu' v-on:click.left="hidemenu">
+        <div v-if='show' id='menu'>
            <ul>
                <li v-for='item in items'>{{item.title}}</li>
            </ul>
+            
+            <div class="row">
+                <div class="col-md-6">
+                   Действия
+                    <ul>
+                        <li v-for='(act,key) in stage.actions'>
+                            <input v-model='act.checked' checked type="checkbox" />
+                        &nbsp;{{act.text}}</li>
+                    </ul>                    
+                </div>
+                <div class="col-md-6">
+                   Части тела
+                    <ul>
+                        <li v-for='(b,key) in stage.body'>
+                            <input v-model='b.checked' checked type="checkbox" />
+                        &nbsp;{{b.text}}</li>
+                    </ul>                    
+                </div>
+            </div>
+            
+
+            
 	    </div>
 	</div>
 
